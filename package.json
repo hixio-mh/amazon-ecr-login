@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "eslint **.js",
     "package": "ncc build index.js -o dist",
-    "test": "eslint **.js && jest --coverage"
+    "test": "eslint **.js && jest --coverage",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -27,11 +29,13 @@
   "dependencies": {
     "@actions/core": "^1.2.4",
     "@actions/exec": "^1.0.4",
-    "aws-sdk": "^2.686.0"
+    "aws-sdk": "^2.686.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@zeit/ncc": "^0.22.3",
     "eslint": "^7.1.0",
     "jest": "^26.0.1"
-  }
+  },
+  "snyk": true
 }
